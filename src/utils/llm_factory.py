@@ -92,7 +92,7 @@ def get_embeddings(provider: str = None):
 
     Lưu ý quan trọng:
         - Anthropic KHÔNG có Embeddings API → tự động fallback về OpenAI embeddings
-        - OpenRouter cũng dùng OpenAI embeddings (không có API embeddings riêng)
+        - OpenRouter dùng chính OPENROUTER_API_KEY cho embeddings (endpoint /v1/embeddings)
         - Ollama cần model embedding riêng (mặc định: nomic-embed-text)
           Cài đặt: ollama pull nomic-embed-text
 
@@ -105,7 +105,18 @@ def get_embeddings(provider: str = None):
     """
     provider = (provider or config.PROVIDER).lower()
 
-    if provider in ("openai", "openrouter"):
+    if provider == "openrouter":
+        # OpenRouter CÓ endpoint /embeddings tương thích OpenAI,
+        # nhưng phải dùng OPENROUTER_API_KEY — không phải OPENAI_API_KEY.
+        from langchain_openai import OpenAIEmbeddings
+        return OpenAIEmbeddings(
+            model=config.OPENAI_EMBEDDING_MODEL,
+            api_key=config.OPENROUTER_API_KEY,
+            base_url=config.OPENROUTER_BASE_URL,
+            check_embedding_ctx_length=False,   # gửi text thẳng, không tokenize trước
+        )
+
+    if provider == "openai":
         from langchain_openai import OpenAIEmbeddings
         kwargs = {
             "model": config.OPENAI_EMBEDDING_MODEL,

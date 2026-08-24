@@ -11,6 +11,16 @@ import argparse
 import importlib
 from pathlib import Path
 
+# Windows: ép stdout/stderr về UTF-8 ngay từ đầu.
+# run_all.py in tiêu đề tiếng Việt TRƯỚC khi import config, nên không hưởng
+# được đoạn vá trong config.py — phải tự vá ở đây, nếu không lệnh
+# `python run_all.py > log.txt` sẽ vỡ ngay dòng in đầu tiên.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8")
+    except (AttributeError, ValueError):
+        pass
+
 sys.path.insert(0, str(Path(__file__).parent))
 
 
@@ -23,6 +33,7 @@ STEPS = {
 
 
 def run_step(step_num: int):
+    """Import và chạy main() của một bước; trả về True nếu bước đó hoàn thành không lỗi."""
     title, module_name = STEPS[step_num]
     print(f"\n{'=' * 60}")
     print(f"  {title}")
@@ -42,6 +53,7 @@ def run_step(step_num: int):
 
 
 def main():
+    """Đọc tham số dòng lệnh rồi chạy một bước cụ thể hoặc cả 4 bước theo thứ tự."""
     parser = argparse.ArgumentParser(
         description="Chạy Day22 Lab: LangSmith + Prompt Versioning + RAGAS + Guardrails"
     )

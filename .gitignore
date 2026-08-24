@@ -1,5 +1,6 @@
 # API keys — KHÔNG BAO GIỜ commit file này
 .env
+.env.bak
 
 # Python
 __pycache__/
@@ -28,3 +29,4 @@ env/
 
 # Lab outputs (không commit, chỉ nộp evidence/)
 data/ragas_report.json
+data/rag_outputs_*.json
