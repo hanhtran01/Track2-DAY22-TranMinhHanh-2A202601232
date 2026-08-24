@@ -1,53 +1,15 @@
 {
-  "n_qa_pairs": 50,
-  "evaluation_complete": false,
-  "coverage_v1": {
-    "faithfulness": {
-      "scored": 50,
-      "total": 50
-    },
-    "answer_relevancy": {
-      "scored": 50,
-      "total": 50
-    },
-    "context_recall": {
-      "scored": 50,
-      "total": 50
-    },
-    "context_precision": {
-      "scored": 50,
-      "total": 50
-    }
-  },
-  "coverage_v2": {
-    "faithfulness": {
-      "scored": 48,
-      "total": 50
-    },
-    "answer_relevancy": {
-      "scored": 49,
-      "total": 50
-    },
-    "context_recall": {
-      "scored": 49,
-      "total": 50
-    },
-    "context_precision": {
-      "scored": 47,
-      "total": 50
-    }
-  },
   "prompt_v1_scores": {
-    "faithfulness": 0.9630000000000001,
-    "answer_relevancy": 0.9084734770748342,
+    "faithfulness": 0.9341818181818182,
+    "answer_relevancy": 0.9163281976820937,
     "context_recall": 1.0,
-    "context_precision": 0.9833333332526667
+    "context_precision": 0.9449999999255835
   },
   "prompt_v2_scores": {
-    "faithfulness": 0.9679969336219335,
-    "answer_relevancy": 0.9069105268780836,
+    "faithfulness": 0.8827318792318792,
+    "answer_relevancy": 0.8957410244483347,
     "context_recall": 1.0,
-    "context_precision": 0.9751773048826241
+    "context_precision": 0.9416666665930833
   },
   "target_met": true
 }
