@@ -2,7 +2,7 @@
 
 Học viên: Trần Minh Hạnh - 2A202601232
 LangSmith project: `day22-lab`
-https://smith.langchain.com/o/311850db-4bef-4f14-91e8-ff2eac2b3c16/projects/p/05856170-3972-4eca-942e-86c675da00e6?timeModel=%7B%22duration%22%3A%221d%22%7D
+Link: https://smith.langchain.com/o/311850db-4bef-4f14-91e8-ff2eac2b3c16/projects/p/05856170-3972-4eca-942e-86c675da00e6?timeModel=%7B%22duration%22%3A%221d%22%7D
 
 ## Danh mục tệp
 
